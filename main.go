@@ -6,10 +6,9 @@ import (
 )
 
 type User struct {
-	Pseudo string
+	Pseudo  string
 	Success bool
-	}
-	
+}
 
 func main() {
 
@@ -21,10 +20,10 @@ func main() {
 			return
 		}
 		details := User{
-			Pseudo: r.FormValue("pseudo"),
+			Pseudo:  r.FormValue("pseudo"),
 			Success: true,
 		}
 		tmpl1.Execute(w, details)
 	})
 	http.ListenAndServe(":80", nil)
-} 
+}

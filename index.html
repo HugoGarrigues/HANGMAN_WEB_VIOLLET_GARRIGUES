@@ -8,11 +8,11 @@
 </head>
 <body>
     {{if .Success}}
-        <h1>Bienvenue {{.FirstName}}</h1>
+        <h1>Bienvenue {{.Pseudo}}</h1>
     {{else}}
         <h1>S'inscrire</h1>
         <form method="POST">
-            <label>Pseudo:</label><br />
+            <label>Pseudo:</label><br/>
             <input type="text" name="pseudo"><br />
         </form>
     {{end}}
