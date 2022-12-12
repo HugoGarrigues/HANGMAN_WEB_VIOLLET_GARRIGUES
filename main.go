@@ -8,6 +8,8 @@ import (
 type User struct {
 	Pseudo  string
 	Success bool
+	Niveau  string
+	Essais  int
 }
 
 func main() {
@@ -21,6 +23,7 @@ func main() {
 		}
 		details := User{
 			Pseudo:  r.FormValue("pseudo"),
+			Niveau:  r.FormValue("1 ou 2 ou 3"),
 			Success: true,
 		}
 		tmpl1.Execute(w, details)
