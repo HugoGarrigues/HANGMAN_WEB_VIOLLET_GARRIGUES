@@ -23,7 +23,7 @@ func main() {
 		}
 		details := User{
 			Pseudo:  r.FormValue("pseudo"),
-			Niveau:  r.FormValue("1 ou 2 ou 3"),
+			Niveau:  r.FormValue("niveau"),
 			Success: true,
 		}
 		tmpl1.Execute(w, details)
