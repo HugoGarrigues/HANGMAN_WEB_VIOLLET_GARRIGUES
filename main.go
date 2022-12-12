@@ -5,34 +5,26 @@ import (
 	"net/http"
 )
 
-type Car struct {
-	Brand string
-	Model string
-	Power int
-	Available bool
-}
-
-type Garage struct {
-	Name string
-	Cars []Car
-}
+type User struct {
+	Pseudo string
+	Success bool
+	}
+	
 
 func main() {
 
-	tmpl := template.Must(template.ParseFiles("index.html"))
+	tmpl1 := template.Must(template.ParseFiles("index.html"))
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		data := Garage{
-			Name: "Alan's Cars",
-			Cars: []Car{
-				{Brand: "Audi", Model: "TT", Power: 245 , Available: false},
-				{Brand: "Lamborghini", Model: "Aventador SVJ",Power: 770 , Available: true},
-				{Brand: "Ferrari", Model: "F8 Spider",Power: 720 , Available: true},
-			},
+	http.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			tmpl1.Execute(w, nil)
+			return
 		}
-		tmpl.Execute(w, data)
+		details := User{
+			Pseudo: r.FormValue("pseudo"),
+			Success: true,
+		}
+		tmpl1.Execute(w, details)
 	})
-
 	http.ListenAndServe(":80", nil)
-	
-}
+} 

@@ -7,20 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-<h1>{{.Name}}</h1>
-<ul>
-    <h4>Liste des voitures</h4>
-    {{range .Cars}}
-        <li>
-            <div>{{.Brand}} {{.Model}}</div>
-            <div>Puissance : {{.Power}}CV</div>
-            {{if .Available}}
-                <a class="available" href="#">Disponible</a></li>
-            {{else}}
-                <a class="not-available" href="#">Indisponible</a></li>
-            {{end}}
-        </li>
+    {{if .Success}}
+        <h1>Bienvenue {{.FirstName}}</h1>
+    {{else}}
+        <h1>S'inscrire</h1>
+        <form method="POST">
+            <label>Pseudo:</label><br />
+            <input type="text" name="pseudo"><br />
+        </form>
     {{end}}
-</ul>
+    <a href="/">Retour à l'accueil</a>
 </body>
 </html>
