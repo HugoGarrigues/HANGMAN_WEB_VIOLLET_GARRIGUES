@@ -16,6 +16,9 @@ func main() {
 
 	tmpl1 := template.Must(template.ParseFiles("index.html"))
 
+	fs := http.FileServer(http.Dir("css"))
+	http.Handle("/css/", http.StripPrefix("/css/", fs))
+
 	http.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			tmpl1.Execute(w, nil)
