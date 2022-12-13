@@ -49,8 +49,13 @@ body {
     text-decoration: none;
     display: flex;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .register:hover{
     font-size: 13pt;
+}
+
+.input-radio{
+    background-color: orange;
 }

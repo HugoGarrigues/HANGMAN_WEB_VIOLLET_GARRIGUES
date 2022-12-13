@@ -9,8 +9,10 @@
 </head>
 <body>
     {{if .Success}}
-        <h1>Bienvenue {{.Pseudo}}</h1>
-        <h1>Veuillez choisir la difficulté souhaité</h1>
+    <div class="barre">
+        <div class="titre">Hangman</div>
+    </div>
+        <div class="fond">
         <form method="POST">
             <label>Niveau:</label><br/>
             <input type="radio" id="Niveau-1" name="niveau" checked>
@@ -19,8 +21,9 @@
             <label for="Niveau-2">2</label><br/>
             <input type="radio" id="Niveau-3" name="niveau">
             <label for="Niveau-3">3</label><br/>
-            <input type="submit" value="Envoyer"/>
+            <input type="submit" value="Envoyer">
         </form>
+    </div>
     {{else}}
         <div class="barre">
             <div class="titre">Hangman</div>
