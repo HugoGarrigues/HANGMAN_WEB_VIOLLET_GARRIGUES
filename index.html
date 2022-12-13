@@ -13,7 +13,7 @@
         <div class="titre">Hangman</div>
     </div>
         <div class="fond">
-        <form method="POST">
+        <form action="/jeu" method="GET">
             <label>Niveau:</label><br/>
             <input type="radio" id="Niveau-1" name="niveau" checked>
             <label for="Niveau-1" selected>1</label><br/>
@@ -21,9 +21,7 @@
             <label for="Niveau-2">2</label><br/>
             <input type="radio" id="Niveau-3" name="niveau">
             <label for="Niveau-3">3</label><br/>
-            <a href="idCard.html">
-            <input type="submit" value="Envoyer">
-        </a>
+            <input type="submit" value="Envoyer" href="idCard.html">
         </form>
     </div>
     {{else}}

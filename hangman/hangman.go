@@ -1,4 +1,4 @@
-package main
+package hangman
 
 import (
 	"bufio"
@@ -89,30 +89,16 @@ func AfficheMotAvecLettreTrouvee(lettre string, mot string, motCache string) str
 	return motCacheTemporaire
 }
 
-func LancementDuJeu(essais int) {
-	var lettre string
-	mot := MotAleatoire()
-	nouveaumot := MasquerMot(mot)
-	for 0 != 1 {
-		fmt.Println(nouveaumot)
-		if essais == 0 {
-			break
-		} else if MotEstTrouve(nouveaumot) {
-			break
-		}
-		fmt.Scan(&lettre)
-		if Verif_lettre(lettre) {
-			lettre = MettreEnMajuscule(lettre)
-			if LettreEstPresente(lettre, mot) {
-				nouveaumot = AfficheMotAvecLettreTrouvee(lettre, mot, nouveaumot)
-			} else {
-				essais -= 1
-				println(essais)
-			}
+func LancementDuJeu(essais int, lettre string, nouveaumot string, mot string) (int, string, string) {
+	fmt.Println(nouveaumot)
+	fmt.Scan(&lettre)
+	if Verif_lettre(lettre) {
+		lettre = MettreEnMajuscule(lettre)
+		if LettreEstPresente(lettre, mot) {
+			nouveaumot = AfficheMotAvecLettreTrouvee(lettre, mot, nouveaumot)
+		} else {
+			essais--
 		}
 	}
-}
-
-func main() {
-	LancementDuJeu(10)
+	return essais, lettre, nouveaumot
 }
