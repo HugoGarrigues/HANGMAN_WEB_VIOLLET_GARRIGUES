@@ -59,3 +59,9 @@ body {
 .input-radio{
     background-color: orange;
 }
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    background-color: orange;
+}
