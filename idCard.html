@@ -11,16 +11,20 @@
     <div class="barre">
         <div class="titre">Hangman</div>
     </div>
-    <div class = "lancement">
-        <p class = "mot">
-            {{.NouveauMot}}<br>Il vous reste {{.Essais}} essais !
-        </p>
-        <form action="/jeu" method="get">
-            <h1>Hangman</h1>
-            <h2>Entrez une lettre</h2>
-            <input type="text" name="letter" id="letter">
-            <input type="submit" value="Valider">
-        </form>    
+    <div class="partieGauche">
+        <div class = "lancement">
+            <p class = "mot">
+                {{.NouveauMot}}<br>Il vous reste {{.Essais}} essais !
+            </p>
+            <form action="/jeu" method="get">
+                <h1>Hangman</h1>
+                <h2>Entrez une lettre</h2>
+                <input type="text" name="lettre" id="letter">
+                <input type="submit" value="Valider">
+            </form>    
+        </div>
     </div>
+    <div class="partieDroite"></div>
+
 </body>
 </html>
