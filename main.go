@@ -39,6 +39,10 @@ func main() {
 		tmpl1.Execute(w, details)
 	})
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			tmpl2.Execute(w, nil)
+			return
+		}
 		data := Jeu{
 			mot:    hangman.MotAleatoire(),
 			essais: 10,
