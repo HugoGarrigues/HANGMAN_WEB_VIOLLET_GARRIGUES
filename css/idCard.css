@@ -27,3 +27,10 @@ body {
     font-size: 50px;
     letter-spacing: 4px;
 }
+
+.essais {
+    position : fixed ;
+    top : 20% ;
+    left : 50% ;
+
+}

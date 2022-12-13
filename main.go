@@ -15,7 +15,7 @@ type User struct {
 type Jeu struct {
 	Mot        string
 	NouveauMot string
-	essais     int
+	Essais     int
 }
 
 func main() {
@@ -41,18 +41,12 @@ func main() {
 	data := Jeu{
 		Mot:        hangman.MotAleatoire(),
 		NouveauMot: hangman.MasquerMot(hangman.MotAleatoire()),
-		essais:     10,
+		Essais:     10,
 	}
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 
-		var lettre string
-		if r.FormValue("lettre") != "" {
-			lettre = r.FormValue("lettre")
-		}
-		if hangman.LettreEstPresente(lettre, data.Mot) {
-			data.NouveauMot = hangman.AfficheMotAvecLettreTrouvee(lettre, data.Mot, data.NouveauMot)
-		} else {
-			data.essais--
+		if hangman.LettreEstPresente(r.FormValue("letter"), data.Mot) && len(r.FormValue("letter")) == 1 {
+			data.Essais--
 		}
 		tmpl2.Execute(w, data)
 	})
