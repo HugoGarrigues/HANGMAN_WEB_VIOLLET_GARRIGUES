@@ -33,20 +33,11 @@ func main() {
 		}
 		tmpl1.Execute(w, details)
 	})
-
-	http.HandleFunc("/tst", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			tmpl2.Execute(w, nil)
 			return
 		}
-		details := User{
-			Pseudo:  r.FormValue("pseudo"),
-			Niveau:  r.FormValue("niveau"),
-			Success: true,
-		}
-		tmpl2.Execute(w, details)
-	})
-	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 		var lettre string
 		mot := hangman.MotAleatoire()
 		nouveaumot := hangman.MasquerMot(mot)
