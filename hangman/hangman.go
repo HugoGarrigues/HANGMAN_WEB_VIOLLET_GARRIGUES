@@ -33,7 +33,7 @@ func MettreEnMajuscule(lettre string) string {
 }
 
 func MotAleatoire() string {
-	fichier, err := os.Open("mot.txt")
+	fichier, err := os.Open("./hangman/mot.txt")
 	if err != nil {
 		fmt.Println("Erreur lors de l'ouverture du fichier !")
 	}
