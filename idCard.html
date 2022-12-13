@@ -13,8 +13,14 @@
     </div>
     <div class = "lancement">
         <p class = "mot">
-            {{.Mot}}
-        </p>    
+            {{.NouveauMot}}
+        </p>
+        <form action="/jeu" method="get">
+            <h1>Hangman</h1>
+            <h2>Entrez une lettre</h2>
+            <input type="text" name="letter" id="letter">
+            <input type="submit" value="Valider">
+        </form>    
     </div>
 </body>
 </html>
