@@ -1,0 +1,25 @@
+body { 
+    }
+
+.barre {
+    position : fixed ;
+    height: 95px;
+    top : 0 ;
+    left : 0 ;
+    width: 100% ;
+    z-index: 99 ;
+    background-color : rgb(29, 28, 28);
+}
+
+.titre {
+    color: orange;
+    font-size: 300%;
+    text-align: center;
+    margin-top: 1.3%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.pseudo{
+    margin-top: 20%;
+    margin-left: 100px
+}
