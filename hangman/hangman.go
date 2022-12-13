@@ -61,14 +61,12 @@ func MasquerMot(mot string) string {
 	n := len(mot)/2 - 1
 	runes := []rune(mot)
 	var indexes []int
-	var revealed []rune
 	for i := 0; i < n; i++ {
 		index := rand.Intn(len(runes))
 		for contains(indexes, index) {
 			index = rand.Intn(len(runes))
 		}
 		indexes = append(indexes, index)
-		revealed = append(revealed, runes[index])
 	}
 	for i := 0; i < len(runes); i++ {
 		if !contains(indexes, i) {
@@ -95,16 +93,26 @@ func LancementDuJeu(essais int) {
 	var lettre string
 	mot := MotAleatoire()
 	nouveaumot := MasquerMot(mot)
-	for essais < 0 || !MotEstTrouve(nouveaumot) {
+	for 0 != 1 {
 		fmt.Println(nouveaumot)
+		if essais == 0 {
+			break
+		} else if MotEstTrouve(nouveaumot) {
+			break
+		}
 		fmt.Scan(&lettre)
 		if Verif_lettre(lettre) {
 			lettre = MettreEnMajuscule(lettre)
 			if LettreEstPresente(lettre, mot) {
 				nouveaumot = AfficheMotAvecLettreTrouvee(lettre, mot, nouveaumot)
 			} else {
-				essais--
+				essais -= 1
+				println(essais)
 			}
 		}
 	}
+}
+
+func main() {
+	LancementDuJeu(10)
 }
