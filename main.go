@@ -10,7 +10,12 @@ type User struct {
 	Pseudo  string
 	Success bool
 	Niveau  string
-	Essais  int
+}
+
+type Jeu struct {
+	mot        string
+	nouveaumot string
+	essais     int
 }
 
 func main() {
@@ -34,18 +39,17 @@ func main() {
 		tmpl1.Execute(w, details)
 	})
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodPost {
-			tmpl2.Execute(w, nil)
-			return
+		data := Jeu{
+			mot:    hangman.MotAleatoire(),
+			essais: 10,
 		}
+		tmpl2.Execute(w, data)
 		var lettre string
-		mot := hangman.MotAleatoire()
-		nouveaumot := hangman.MasquerMot(mot)
-		essais := 10
+		nouveaumot := hangman.MasquerMot(data.mot)
 		for 0 != 1 {
 			if hangman.MotEstTrouve(nouveaumot) {
 
-			} else if essais == 0 {
+			} else if data.essais == 0 {
 
 			}
 			if r.Method == http.MethodPost {
@@ -53,8 +57,8 @@ func main() {
 					lettre = r.FormValue("lettre")
 				}
 			}
-			hangman.LancementDuJeu(essais, lettre, nouveaumot, mot)
-			essais, lettre, nouveaumot = hangman.LancementDuJeu(essais, lettre, nouveaumot, mot)
+			hangman.LancementDuJeu(data.essais, lettre, nouveaumot, data.mot)
+			data.essais, lettre, nouveaumot = hangman.LancementDuJeu(data.essais, lettre, nouveaumot, data.mot)
 		}
 	})
 	http.ListenAndServe(":80", nil)
