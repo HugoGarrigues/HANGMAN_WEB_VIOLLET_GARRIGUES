@@ -39,7 +39,7 @@ body {
     position: fixed;
     left: 0;
     width: 50%;
-    height: 800px;
+    height: 1200px;
     max-height: auto;
     background-color:orange;
     z-index: 1;
@@ -49,7 +49,7 @@ body {
     position: fixed;
     right: 0;
     width: 50%;
-    height: 800px;
+    height: 1200px;
     max-height: auto;
     background-color:rgb(215, 217, 215);
     }
