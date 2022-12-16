@@ -11,8 +11,9 @@
     <div class="barre">
         <div class="titre">Hangman</div>
     </div>
-    <div class = "lancement">
-        {{if .Victoire}}
+    <div class="partieGauche">
+        <div class = "lancement">
+            {{if .Victoire}}
         <p class = "text-victoire">
             Félicitation vous avez trouvé le mot qui était <br>{{.Mot}}
         </p>
@@ -28,6 +29,9 @@
         </form>
         {{end}}
         <a class="register" href="/register">Retour à l'accueil</a>    
+        </div>
     </div>
+    <div class="partieDroite"></div>
+
 </body>
 </html>

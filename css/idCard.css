@@ -23,7 +23,6 @@ body {
 .mot {
     position : fixed ;
     top : 50% ;
-    left : 50% ;
     font-size: 50px;
     letter-spacing: 4px;
 }
@@ -35,10 +34,34 @@ body {
 
 }
 
+
 .text-victoire {
     position : fixed ;
     top : 500px ;
     left : 300px ;
     font-size: 50px;
     letter-spacing: 4px;
+}
+
+.partieGauche  {
+    position: fixed;
+    left: 0;
+    width: 50%;
+    height: 1200px;
+    max-height: auto;
+    background-color:orange;
+    z-index: 1;
+}
+
+.partieDroite {
+position: fixed;
+right: 0;
+width: 50%;
+height: 1200px;
+max-height: auto;
+background-color:rgb(215, 217, 215);
+}
+
+.lancement{
+z-index: 99;
 }
