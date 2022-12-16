@@ -12,15 +12,22 @@
         <div class="titre">Hangman</div>
     </div>
     <div class = "lancement">
+        {{if .Victoire}}
+        <p class = "text-victoire">
+            Félicitation vous avez trouvé le mot qui était <br>{{.Mot}}
+        </p>
+        {{else}}
         <p class = "mot">
             {{.NouveauMot}}<br>Il vous reste {{.Essais}} essais !
         </p>
         <form action="/jeu" method="get">
             <h1>Hangman</h1>
             <h2>Entrez une lettre</h2>
-            <input type="text" name="letter" id="letter">
+            <input type="text" name="lettre" id="letter">
             <input type="submit" value="Valider">
-        </form>    
+        </form>
+        {{end}}
+        <a class="register" href="/register">Retour à l'accueil</a>    
     </div>
 </body>
 </html>

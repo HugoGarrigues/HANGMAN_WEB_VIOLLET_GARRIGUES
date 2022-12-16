@@ -34,3 +34,11 @@ body {
     left : 50% ;
 
 }
+
+.text-victoire {
+    position : fixed ;
+    top : 500px ;
+    left : 300px ;
+    font-size: 50px;
+    letter-spacing: 4px;
+}

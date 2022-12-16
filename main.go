@@ -16,8 +16,8 @@ type Jeu struct {
 	Mot        string
 	NouveauMot string
 	Essais     int
-	Victoire   string
-	Défaite    string
+	Victoire   bool
+	Defaite    bool
 }
 
 func main() {
@@ -44,13 +44,15 @@ func main() {
 		Mot:        hangman.MotAleatoire(),
 		NouveauMot: hangman.MasquerMot(hangman.MotAleatoire()),
 		Essais:     10,
+		Victoire:   false,
+		Defaite:    false,
 	}
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 		var lettre string
 		if data.Mot == data.NouveauMot {
-
+			data.Victoire = true
 		} else if data.Essais == 0 {
-
+			data.Defaite = true
 		} else {
 			if r.Method == http.MethodGet {
 				if r.FormValue("lettre") != " " {
