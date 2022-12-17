@@ -20,13 +20,6 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.mot {
-    position : fixed ;
-    top : 50% ;
-    font-size: 50px;
-    letter-spacing: 4px;
-}
-
 .essais {
     position : fixed ;
     top : 20% ;
@@ -36,30 +29,9 @@ body {
 
 
 .text-victoire {
-    position : fixed ;
-    top : 500px ;
-    left : 300px ;
     font-size: 50px;
-    letter-spacing: 4px;
-}
-
-.partieGauche  {
-    position: fixed;
-    left: 0;
-    width: 50%;
-    height: 1200px;
-    max-height: auto;
-    background-color: orange;
-    z-index: 1;
-}
-
-.partieDroite {
-position: fixed;
-right: 0;
-width: 50%;
-height: 1200px;
-max-height: auto;
-background-color:rgb(215, 217, 215);
+    text-align: center;
+    margin-top: 20%;
 }
 
 .lancement{
@@ -68,20 +40,36 @@ z-index: 99;
 
 .texteMot {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 8%;
+    color: black;
 }
 
 .inputMot {
     text-align: center;
 }
 
-.mot{
-    text-align: center;
-    margin-left: 11%;
-}
-
 p {
     text-align: center;
     font-size: 50px;
     letter-spacing: 4px;
+}
+
+.mot{
+    text-align: center;
+}
+
+.indications{
+    text-align: center;
+    font-size: 25px;
+}
+
+.figure-contenant{
+    stroke: black;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    fill: transparent;
+}
+
+.dessinPendu{
+    text-align: center;
 }
