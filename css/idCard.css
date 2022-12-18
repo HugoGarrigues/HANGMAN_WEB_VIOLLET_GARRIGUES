@@ -3,10 +3,6 @@ body {
     height: 90vh;
     }
 
-html,body{  
-    overflow:hidden;  
-}
-
 .barre {
     position : fixed ;
     height: 95px;
