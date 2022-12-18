@@ -43,17 +43,13 @@ func main() {
 	data := Jeu{
 		Mot:        hangman.MotAleatoire(),
 		NouveauMot: hangman.MasquerMot(hangman.MotAleatoire()),
-		Essais:     10,
+		Essais:     0,
 		Victoire:   false,
 		Defaite:    false,
 	}
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 		var lettre string
-		if data.Mot == data.NouveauMot {
-			data.Victoire = true
-		} else if data.Essais == 0 {
-			data.Defaite = true
-		} else {
+		if data.Essais != 10 && data.Mot != data.NouveauMot {
 			if r.Method == http.MethodGet {
 				if r.FormValue("lettre") != " " {
 					lettre = r.FormValue("lettre")
@@ -61,9 +57,15 @@ func main() {
 					if hangman.LettreEstPresente(lettre, data.Mot) {
 						data.NouveauMot = hangman.AfficheMotAvecLettreTrouvee(lettre, data.Mot, data.NouveauMot)
 					} else {
-						data.Essais--
+						data.Essais++
 					}
 				}
+			}
+			if data.Essais == 10 {
+				data.Defaite = true
+			}
+			if data.Mot == data.NouveauMot {
+				data.Victoire = true
 			}
 		}
 		tmpl2.Execute(w, data)
