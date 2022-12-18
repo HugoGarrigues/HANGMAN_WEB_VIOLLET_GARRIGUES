@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"hangman-web/hangman"
 	"html/template"
 	"net/http"
@@ -54,7 +53,6 @@ func main() {
 	http.HandleFunc("/jeu", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			if niveau := r.FormValue("niveau"); niveau != "" {
-				fmt.Println("bonjour")
 				if niveau == "facile" {
 					data.Mot = hangman.MotAleatoire()
 					data.Mot = hangman.MettreEnMajuscule(data.Mot)
@@ -70,7 +68,6 @@ func main() {
 				}
 			}
 		}
-		fmt.Println(r.FormValue("niveau"))
 		var lettre string
 		if data.Essais != 10 && data.Mot != data.NouveauMot {
 			if r.Method == http.MethodPost {
@@ -80,7 +77,7 @@ func main() {
 					if hangman.LettreEstPresente(lettre, data.Mot) {
 						data.NouveauMot = hangman.AfficheMotAvecLettreTrouvee(lettre, data.Mot, data.NouveauMot)
 					} else {
-						data.Liste_Lettre = hangman.Ajout_lettre(lettre, data.Liste_Lettre, data.Mot)
+						data.Liste_Lettre += lettre
 						data.Essais++
 					}
 				}
