@@ -137,7 +137,9 @@ func LancementDuJeu(essais int, lettre string, nouveaumot string, mot string) (i
 	return essais, lettre, nouveaumot
 }
 
-func Ajout_lettre(lettre string, liste_lettre string) string {
-	liste_lettre = liste_lettre + lettre
+func Ajout_lettre(lettre string, liste_lettre string, mot string) string {
+	if LettreEstPresente(lettre, mot) == false {
+		liste_lettre += lettre
+	}
 	return liste_lettre
 }

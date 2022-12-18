@@ -80,7 +80,7 @@ func main() {
 					if hangman.LettreEstPresente(lettre, data.Mot) {
 						data.NouveauMot = hangman.AfficheMotAvecLettreTrouvee(lettre, data.Mot, data.NouveauMot)
 					} else {
-						data.Liste_Lettre = hangman.Ajout_lettre(lettre, data.Liste_Lettre)
+						data.Liste_Lettre = hangman.Ajout_lettre(lettre, data.Liste_Lettre, data.Mot)
 						data.Essais++
 					}
 				}
