@@ -3,6 +3,10 @@ body {
     height: 90vh;
     }
 
+html,body{  
+    overflow:hidden;  
+}
+
 .barre {
     position : fixed ;
     height: 95px;
@@ -25,13 +29,13 @@ body {
 .text-victoire {
     font-size: 50px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .text-defaite {
     font-size: 50px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .lancement{
@@ -72,4 +76,9 @@ p {
 
 .dessinPendu{
     text-align: center;
+}
+
+.liste_lettre{
+    text-align: center;
+    font-size: 20px;
 }
