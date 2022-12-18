@@ -49,6 +49,40 @@ func MotAleatoire() string {
 	return mots[rand.Intn(len(mots))]
 }
 
+func MotAleatoire1() string {
+	fichier, err := os.Open("./hangman/mot1.txt")
+	if err != nil {
+		fmt.Println("Erreur lors de l'ouverture du fichier !")
+	}
+	defer fichier.Close()
+
+	scanner := bufio.NewScanner(fichier)
+	var mots []string
+	for scanner.Scan() {
+		mots = append(mots, scanner.Text())
+	}
+
+	rand.Seed(time.Now().UnixNano())
+	return mots[rand.Intn(len(mots))]
+}
+
+func MotAleatoire2() string {
+	fichier, err := os.Open("./hangman/mot2.txt")
+	if err != nil {
+		fmt.Println("Erreur lors de l'ouverture du fichier !")
+	}
+	defer fichier.Close()
+
+	scanner := bufio.NewScanner(fichier)
+	var mots []string
+	for scanner.Scan() {
+		mots = append(mots, scanner.Text())
+	}
+
+	rand.Seed(time.Now().UnixNano())
+	return mots[rand.Intn(len(mots))]
+}
+
 func LettreEstPresente(lettre string, mot string) bool {
 	return strings.Contains(mot, lettre)
 }
@@ -101,4 +135,9 @@ func LancementDuJeu(essais int, lettre string, nouveaumot string, mot string) (i
 		}
 	}
 	return essais, lettre, nouveaumot
+}
+
+func Ajout_lettre(lettre string, liste_lettre string) string {
+	liste_lettre = liste_lettre + lettre
+	return liste_lettre
 }

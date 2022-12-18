@@ -13,17 +13,17 @@
         <div class="titre">Hangman</div>
     </div>
         <div class="fond2">
-        <form action="/jeu" method="GET">
+        <form action="/jeu" method="POST">
             <div class="text">
             <label>Niveau:</label><br/>
         </div>
-            <input type="radio" id="Niveau-1" name="niveau" checked>
+            <input type="radio" id="Niveau-1" name="niveau" value="facile"checked>
             <label for="Niveau-1" selected>1</label><br/>
-            <input type="radio" id="Niveau-2" name="niveau">
+            <input type="radio" id="Niveau-2" name="niveau" value="moyen">
             <label for="Niveau-2">2</label><br/>
-            <input type="radio" id="Niveau-3" name="niveau">
+            <input type="radio" id="Niveau-3" name="niveau" value="difficile">
             <label for="Niveau-3">3</label><br/>
-            <input type="submit" value="Envoyer" href="idCard.html">
+            <input type="submit" value="Envoyer" href = "/jeu">
         </form>
     </div>
     {{else}}

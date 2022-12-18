@@ -20,7 +20,7 @@
                 Dommage vous avez perdu.. Le mot était {{.Mot}}
             </h1>
             {{else}}
-        <form action="/jeu" method="get">
+        <form action="/jeu" method="POST">
             <div class="texteMot">
             <h2>Entrez une lettre</h2>
         </div>
@@ -64,6 +64,9 @@
                 <line x1="140" y1="150" x2="160" y2="180" />
                 {{end}}
             </svg>
+        </div>
+        <div class = "liste_lettre">
+            Les lettres que vous avez essayés sont : <br> {{.Liste_lettre}}
         </div>
         {{end}}   
 </body>
